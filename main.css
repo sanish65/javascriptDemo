@@ -1,0 +1,68 @@
+body{
+    /* background-image: url("paper.png"); */
+    background: #4192d4;
+
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+
+
+}
+.below{
+    display: flex;
+}
+
+.microphone{
+    background: #1d2d3a;
+    width:140px;
+    height:140px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.circle{
+    width:23px;
+    height:45px;
+    background: #d3a1a1;
+    position: absolute;
+    border-radius: 20px;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    ;
+
+
+
+}
+.content{
+    left:90%:
+    background: #252627;
+    
+
+}
+
+.circle::before{
+    content: ')';
+    position: absolute;
+    bottom: -43px;
+    left: 8px;
+    transform: rotate(90deg);
+    font: 50px cursive;
+
+}
+
+.circle::after{
+    content: '|';
+    position: absolute;
+    bottom: -35px;
+    left: 8px;
+    font-weight:1000;
+    font: 20px cursive;
+    
+}
+
+.microphone:hover > .circle{
+    background: rgb(85, 26, 85);
+    color: rgba(11, 151, 151, 0.333);
+}
