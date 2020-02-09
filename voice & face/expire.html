@@ -1,0 +1,24 @@
+<html>
+<head>
+<script>
+Expire()
+{
+// Get the current date and time
+var rightNow = new Date();
+// Setup End Date
+//var rightNow = new Date();
+var beginDate = new Date("February 9,2020 06:15:00 AM");
+var endDate = new Date(new Date().getTime() + parseInt(beginDate) * 1000 * 60 * 60 * 24);
+if (rightNow < beginDate || rightNow > endDate)
+{
+app.alert("It has past the time limit. You cannot use this document any further.\n   For futher subscription  Please pay for subscription!!", 0, 0);
+this.closeDoc()
+}
+}
+</script>
+</head>
+<body>
+    Expire();
+
+</body>
+</html>

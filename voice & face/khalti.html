@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login and signup</title>
+        <script src="https://khalti.com/static/khalti-checkout.js"></script>
+
+    </head>
+    <style>
+        body{
+            background-image:url('happy.jpg');
+            height:100vh;
+            background-size: cover;
+            background-position: center; 
+        }
+
+        .login-page{
+            width: 360px;
+            padding : 10% 0 0;
+            margin: auto;
+        }
+
+        .form{
+            position :relative;
+            z-index: initial;
+            background:rgba(129, 114, 111, 0.5);
+            max-width: 0 auto 100px;
+            padding:45px;
+            text-align: center;
+
+        }
+        .form input{
+            font-family: monospace;
+            outline: 1;
+            background: #ffffff;
+            width: 100%;
+            border: 0;
+            margin: 0 0 15px;
+            padding: 15px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        .form button{
+        font-family: 'Courier New', Courier, monospace;
+        text-transform: uppercase;
+        outline: 0;
+        background: #bc39dd;    
+        width: 100%;
+        border: 0;
+        padding: 15px;
+        color: #ffffff;     
+        font-size: 20px;
+        font-weight: bold;
+        cursor: pointer;   
+        }
+
+        .form button:hover, .form button :active{
+            background: #610b83;
+
+        }
+        .form .message{
+            margin: 15px 0 0;
+            color: blue;
+            font-size: 12px;
+        }
+        .form .message a{
+            color: #3e0b9c;
+            text-decoration : none;
+        }
+        .form .register-form{
+            display: none;
+
+        }
+        
+    </style>
+    <body>
+        <div class="login-page">
+            <div class="form">
+                
+    <button id="payment-button" >Pay with Khalti
+        
+    </button>
+    <a href="sign.html">go back to Login</a>
+
+</centre>
+    <!-- Place this where you need payment button -->
+    <!-- Paste this code anywhere in you body tag -->
+    <script>
+        var config = {
+            // replace the publicKey with yours
+            "publicKey": "test_public_key_dc74e0fd57cb46cd93832aee0a390234",
+            "productIdentity": "1234567890",
+            "productName": "Dragon",
+            "productUrl": "http://gameofthrones.wikia.com/wiki/Dragons",
+            "eventHandler": {
+                onSuccess (payload) {
+                    // hit merchant api for initiating verfication
+                    console.log(payload);
+                },
+                onError (error) {
+                    console.log(error);
+                },
+                onClose () {
+                    console.log('widget is closing');
+                }
+            }
+        };
+
+        var checkout = new KhaltiCheckout(config);
+        var btn = document.getElementById("payment-button");
+        btn.onclick = function () {
+            checkout.show({amount: 1000});
+        }
+    </script>
+    <!-- Paste this code anywhere in you body tag -->
+    
+</body>
+</html>

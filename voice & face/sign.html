@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login and signup</title>
+        <script src="https://khalti.com/static/khalti-checkout.js"></script>
+
+    </head>
+    <style>
+        body{
+            background-image:url('happy.jpg');
+            height:100vh;
+            background-size: cover;
+            background-position: center; 
+        }
+
+        .login-page{
+            width: 360px;
+            padding : 10% 0 0;
+            margin: auto;
+        }
+
+        .form{
+            position :relative;
+            z-index: initial;
+            background:rgba(129, 114, 111, 0.5);
+            max-width: 0 auto 100px;
+            padding:45px;
+            text-align: center;
+
+        }
+        .form input{
+            font-family: monospace;
+            outline: 1;
+            background: #ffffff;
+            width: 100%;
+            border: 0;
+            margin: 0 0 15px;
+            padding: 15px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        .form button{
+        font-family: 'Courier New', Courier, monospace;
+        text-transform: uppercase;
+        outline: 0;
+        background: #47af8c;    
+        width: 100%;
+        border: 0;
+        padding: 15px;
+        color: #ffffff;     
+        font-size: 20px;
+        cursor: pointer;   
+        font-weight: bold;
+        }
+
+        .form button:hover, .form button :active{
+            background: #0a694a;
+
+        }
+        .form .message{
+            margin: 15px 0 0;
+            color: blue;
+            font-size: 12px;
+        }
+        .form .message a{
+            color: #fbf8ff;
+            text-decoration : none;
+        }
+        .form .register-form{
+            display: none;
+
+        }
+            
+        
+            
+            
+                   
+    </style>
+    <body>
+        <div class="login-page">
+            <div class="form">
+                <form class="register-form" name="myForm"  onsubmit="return validate()" method="post">
+                    <h1>Register Form</h1>
+                    <input type="text" placeholder="username" name="username"/>
+                    <input type="text" placeholder="email id" name="email"/>
+                    <input type="password" placeholder="password" name="password"/>
+                    <button type="submit"  ><a href="choosepayment.html">Create</a></button>
+                    <p class="message">Already Registered? <a href="choosepayment.html">Login</a></p>
+                    <!-- <button id="payment-button" style="background-color:rgb(131, 78, 182);text-align:center; width:80px;" ><a href="khalti.html">Khalti</a></button> -->
+
+                  </form>
+                  <form class="login-form" name="myform" action="index.html" onsubmit="return validate()" method="post">
+                       <h1>Login form</h1> 
+                    <input type="text" placeholder="username" name="username"/>
+                    <input type="password" placeholder="password" name="password"/>
+                    <button><a href="index.html">Login</a></button>
+                    <p class="message">Not Registered?<a href="#">Register</a></p>
+                                        
+                  </form>
+            </div>
+        </div>
+        <script src='jquery-ui-1.12.1.custom/external/jquery/jquery.js' >
+            </script>
+    <script>
+        $('.message a').click(function(){
+        $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
+
+        });
+       
+        var config = {
+            // replace the publicKey with yours
+            "publicKey": "test_public_key_dc74e0fd57cb46cd93832aee0a390234",
+            "productIdentity": "1234567890",
+            "productName": "Dragon",
+            "productUrl": "http://gameofthrones.wikia.com/wiki/Dragons",
+            "eventHandler": {
+                onSuccess (payload) {
+                    // hit merchant api for initiating verfication
+                    console.log(payload);
+                },
+                onError (error) {
+                    console.log(error);
+                },
+                onClose () {
+                    console.log('widget is closing');
+                }
+            }
+        };
+
+        var checkout = new KhaltiCheckout(config);
+        var btn = document.getElementById("payment-button");
+        btn.onclick = function () {
+            checkout.show({amount: 1000});
+        }
+    </script>
+        
+    </script>
+    <script>
+      // Form validation code will come here.
+      function validate() {
+      
+         if( document.myForm.name.value == "" ) {
+            alert( "Please provide your name!" );
+            document.myForm.name.focus() ;
+            return false;
+         }
+         if( document.myForm.Email.value == "" ) {
+            alert( "Please provide your Email!" );
+            document.myForm.email.focus() ;
+            return false;
+         }
+         if( document.myForm.password.value == "" ) {
+            alert( "Please provide your password!" );
+            document.myForm.password.focus() ;
+            return false;
+         }
+         return( true );
+      }
+    </script>
+
+    </script>
+    </body>
+</html>
