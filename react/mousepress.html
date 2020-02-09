@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>Page Title</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+
+  <script>
+    
+var int;
+$("#test").mousedown(function() {
+    int = setInterval(performWhileMouseDown, 100);
+}).mouseup(function() {
+  clearInterval(int);  
+});
+function performWhileMouseDown() {
+    $("#output").append("<p>Mouse down</p>");
+    console.log("hi");
+}
+  </script>
+</head>
+<body>
+  <a href="#" id="test">Click me</a>
+<div id="output"></div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

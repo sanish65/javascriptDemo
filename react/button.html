@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+  
+</head>
+<body><button 
+    onmousedown="setInter()"
+    onmouseup="unsetInter()"> add </button>
+    <br>
+    <span id=skill_1>0</span>
+    <script>var inter = null;
+
+        function setInter(){   
+            inter=setInterval(incrementValue, 500);
+        }
+        
+        function unsetInter(){
+            clearInterval(inter);
+        }
+        
+        function incrementValue() {
+           var value = parseInt(document.getElementById('skill_1').innerHTML);
+           value = value + 1;
+           document.getElementById('skill_1').innerHTML = value;
+        }
+    </script>
+</body>
+</html>
