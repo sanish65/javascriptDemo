@@ -154,31 +154,6 @@ function speakIt2(mssg)
     window.speechSynthesis.speak(speech);
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 const recognition =new SpeechRecognition();
 
@@ -288,17 +263,17 @@ var db=openDatabase("itemDB","1.0","itemDB",65535);
           db.transaction(function(transaction){
             var sql="SELECT * FROM items ORDER BY id DESC";
             transaction.executeSql(sql,undefined,function(transaction,result){
-        if(result.rows.length){
-        
-        for(var i=0;i<result.rows.length;i++){
-          var row=result.rows.item(i);
-          var item=row.item;
-          var id=row.id;
-          if( item=="neutral")
+             if(result.rows.length)
+              for(var i=0;i<result.rows.length;i++){
+              var row=result.rows.item(i);
+              var item=row.item;
+              var id=row.id;
+            if( item=="neutral"){}
             
-
         }
-        }else{
+      
+        
+        else{
           alert('No emotions');
         }
         

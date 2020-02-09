@@ -65,7 +65,7 @@ function speakIt(mssg)
     }
     else if(mssg.includes('hi there'))
     {
-        speech.text = "hey. How can i help you";
+        speech.text = "hey.How have you been? How can i help you";
 
     }
     else if(mssg.includes('what is the date'))

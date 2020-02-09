@@ -51,21 +51,21 @@ function speakIt(mssg)
     speech.text = 'I dont know what you said';
 
 
-    if(mssg.includes('how are you'))
+    if(mssg.includes('How are you??'))
     {
         const finalText=
         greetings[Math.floor(Math.random() * greetings.length)];
         speech.text = finalText;
     }
-
+    
     else if(mssg.includes('what is the time'))
     {
         speech.text = 'It is '+new Date().getHours() + " " + new Date().getMinutes()+" right now";
 
     }
-    else if(mssg.includes('hi there'))
+    else if(mssg.includes('hi there') || mssg.includes('Hello'))
     {
-        speech.text = "ho. How can i help you";
+        speech.text = "hi. How can I help you";
 
     }
     else if(mssg.includes('what is the date'))
@@ -73,26 +73,32 @@ function speakIt(mssg)
         speech.text = 'It is '+new Date() + " " + new Date().getMinutes()+" right now";
 
     }
-    else if(mssg.includes('what is your name') || mssg.includes('who are you'))
+    else if(mssg.includes('what is your name') || mssg.includes('tell me about yourself'))
     {
-        speech.text = 'i am kiri. Your help partner';
+        speech.text = 'I am JS. Your help partner. I help you get through your hard time';
 
     }
-    else if(mssg.includes('hello'))
+    // else if(mssg.includes('hello'))
+    // {
+    //     speech.text = 'HI. How can I help you';
+
+    // }
+    else if(mssg.includes('Check my emotion'))
     {
-        speech.text = 'hi';
+        location.href="face.html"
+        speech.text = "Sure thing!";
 
     }
-    else if(mssg.includes('check my emotion'))
+    else if(mssg.includes('I dont know what to do.'))
     {
-        // document.getElementById('btn1').enabled=true;
-        speech.text = "click the button below";
+        speech.text = 'Take a deep breathe, close your eyes and feel your breathing slowly. Compose your thoughts. Why dont you leave what you doing and take a walk.';
 
     }
-    else if(mssg.includes('help me'))
-    {
-        speech.text = 'i can check your emotion';
-
+    else if(mssg.inlcudes('I feel alone, I have no friends')){
+        speech.text = 'you are an amazing human being, why dont you join a peer support group?'
+    }
+    else if(mssg.includes('I feel lost.')) {
+    speech.text="I'll talk you through it. Tell me what happened. I'm listening"
     }
 
     speech.volume = 1;
